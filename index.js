@@ -92,7 +92,7 @@ async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
         const { version, isLatest } = await fetchLatestBaileysVersion();
-        console.log(`DRACULA-MD using WA v${version.join('.')}, isLatest: ${isLatest}`);
+        console.log(`DRACULA-MD using WhatsApp v${version.join('.')}, isLatest: ${isLatest}`);
 
         const Matrix = makeWASocket({
             version,
@@ -121,25 +121,22 @@ async function start() {
                 }
             } else if (connection === 'open') {
                 if (initialConnection) {
-                    console.log(chalk.green("Connected Successfully KYOTAKA-MD ⚪"));
+                    console.log(chalk.green("Connected Successfully DRACULA-MD ⚪"));
                     Matrix.sendMessage(Matrix.user.id, {
-                        image: { url: "https://files.catbox.moe/sauy49.jpg" },
-                        caption: `salut je suis DRACULA-MD ton bot assistant👋🏻
+                        image: { url: "https://files.catbox.moe/hbos7n.jpg" },
+                        caption: `𝚜𝚊𝚕𝚞𝚝 𝚓𝚎 𝚜𝚞𝚒𝚜  𝙳𝚁𝙰𝙲𝚄𝙻𝙰-𝙼𝙳 𝚝𝚘𝚗 𝚋𝚘𝚝 𝚊𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝👋🏻
 
-Simple, direct, mais chargé de fonctionnalités 🎊. Rencontrez le bot WhatsApp DRACULA-MD.
+𝚂𝚒𝚖𝚙𝚕𝚎, 𝚍𝚒𝚛𝚎𝚌𝚝, 𝚖𝚊𝚒𝚜 𝚌𝚑𝚊𝚛𝚐é 𝚍𝚎 𝚏𝚘𝚗𝚌𝚝𝚒𝚘𝚗𝚗𝚊𝚕𝚒𝚝é𝚜 🎊.  𝚁𝚎𝚗𝚌𝚘𝚗𝚝𝚛𝚎𝚣 𝚕𝚎 𝚋𝚘𝚝 𝚆𝚑𝚊𝚝𝚜𝙰𝚙𝚙 𝙳𝚁𝙰𝙲𝚄𝙻𝙰-𝙼𝙳.
 
-🔧 Bot Configuration:
-Auto Status Seen: ${config.AUTO_STATUS_SEEN ? '✅' : '❌'}
-Auto Status Reply: ${config.AUTO_STATUS_REPLY ? '✅' : '❌'}
-Auto Download: ${config.AUTO_DL ? '✅' : '❌'}
-Always Online: ${config.ALWAYS_ONLINE ? '✅' : '❌'}
+🔧 𝙲𝚘𝚗𝚏𝚒𝚐𝚞𝚛𝚊𝚝𝚒𝚘𝚗:
+𝙰𝚞𝚝𝚘 𝚂𝚝𝚊𝚝𝚞𝚜 𝚂𝚎𝚎𝚗: ${config.AUTO_STATUS_SEEN ? '✅' : '❌'}
+𝙰𝚞𝚝𝚘 𝚂𝚝𝚊𝚝𝚞𝚜 𝚁𝚎𝚙𝚕𝚢: ${config.AUTO_STATUS_REPLY ? '✅' : '❌'}
+𝙰𝚞𝚝𝚘 𝙳𝚕: ${config.AUTO_DL ? '✅' : ''}
+𝙰𝚕𝚠𝚊𝚢𝚜 𝙾𝚗𝚕𝚒𝚗𝚎: ${config.ALWAYS_ONLINE ? '✅' : '❌'}
 
-📌 Command Prefix: ${prefix}
+ 𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝙿𝚛𝚎𝚏𝚒𝚡: ${prefix}
 
-Don't forget to give a star to the repo 🌟
-https://github.com/Dracula00-ux/Dracula-MD.git
-
-Powered BY Pharouk 🫠`
+> créé par Pharouk`
                     });
                     initialConnection = false;
                 } else {
