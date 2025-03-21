@@ -38,10 +38,6 @@ const logger = MAIN_LOGGER.child({});
 logger.level = "trace";
 
 const msgRetryCounterCache = new NodeCache();
-
-const __filename = new URL(import.meta.url).pathname;
-const __dirname = path.dirname(__filename);
-
 const sessionDir = path.join(__dirname, 'session');
 const credsPath = path.join(sessionDir, 'creds.json');
 
@@ -49,6 +45,7 @@ if (!fs.existsSync(sessionDir)) {
     fs.mkdirSync(sessionDir, { recursive: true });
 }
 
+// Fonction pour télécharger la session si nécessaire
 async function downloadSessionData() {
     console.log("Debugging SESSION_ID:", config.SESSION_ID);
 
@@ -69,7 +66,6 @@ async function downloadSessionData() {
     try {
         console.log("Downloading Session...");
         const file = File.fromURL(`https://mega.nz/file/${fileID}#${decryptKey}`);
-
         const data = await new Promise((resolve, reject) => {
             file.download((err, data) => {
                 if (err) reject(err);
@@ -86,6 +82,7 @@ async function downloadSessionData() {
     }
 }
 
+// Fonction de démarrage
 async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
@@ -100,6 +97,7 @@ async function start() {
             auth: state,
         });
 
+        // Gestion des connexions
         Matrix.ev.on('connection.update', (update) => {
             const { connection, lastDisconnect } = update;
             if (connection === 'close') {
@@ -111,19 +109,17 @@ async function start() {
                     console.log(chalk.green("Connected Successfully KYOTAKA-MD ⚪"));
                     Matrix.sendMessage(Matrix.user.id, { 
                         image: { url: "https://files.catbox.moe/sauy49.jpg" }, 
-                        caption: `salut je suis  DRACULA-MD ton bot assistant👋🏻 
-
- Simple, direct, mais chargé de fonctionnalités 🎊.  Rencontrez le bot WhatsApp DRACULA-MD.
+                        caption: `salut je suis  DRACULA-MD ton bot assistant👋🏻
 
 🔧 *Bot Configuration:*
-✅ *Auto Status Seen:* ${config.AUTO_STATUS_SEEN ? 'Enabled ✅' : 'Disabled ❌'}
-✅ *Auto Status Reply:* ${config.AUTO_STATUS_REPLY ? 'Enabled ✅' : 'Disabled ❌'}
-✅ *Auto Download:* ${config.AUTO_DL ? 'Enabled ✅' : 'Disabled ❌'}
-✅ *Always Online:* ${config.ALWAYS_ONLINE ? 'Enabled ✅' : 'Disabled ❌'}
+ *Auto Status Seen:* ${config.AUTO_STATUS_SEEN ? '✅' : '❌'}
+ *Auto Status Reply:* ${config.AUTO_STATUS_REPLY ? '✅' : '❌'}
+*Auto Download:* ${config.AUTO_DL ? '✅' : '❌'}
+ *Always Online:* ${config.ALWAYS_ONLINE ? '✅' : '❌'}
 
 📌 *Command Prefix:* ${prefix}
 
-Don't forget to give a star to the repo ⬇️  
+Don't forget to give a star to the repo 🌟  
 https://github.com/Dracula00-ux/Dracula-MD.git
 
  Powered BY Pharouk 🫠`
@@ -134,20 +130,16 @@ https://github.com/Dracula00-ux/Dracula-MD.git
                 }
             }
         });
-        
-        Matrix.ev.on('creds.update', saveCreds);
 
+        Matrix.ev.on('creds.update', saveCreds);
         Matrix.ev.on("messages.upsert", async chatUpdate => await Handler(chatUpdate, Matrix, logger));
         Matrix.ev.on("call", async (json) => await Callupdate(json, Matrix));
         Matrix.ev.on("group-participants.update", async (messag) => await GroupUpdate(Matrix, messag));
 
-        if (config.MODE === "public") {
-            Matrix.public = true;
-        } else if (config.MODE === "private") {
-            Matrix.public = false;
-        }
+        // Définir le mode
+        Matrix.public = config.MODE === "public";
 
-        // Auto-reaction
+        // Fonction auto-réaction
         Matrix.ev.on('messages.upsert', async (chatUpdate) => {
             try {
                 const mek = chatUpdate.messages[0];
@@ -162,18 +154,20 @@ https://github.com/Dracula00-ux/Dracula-MD.git
             }
         });
 
-        // Auto-status seen & reply
+        // Fonction auto-status (vu & réponse)
         Matrix.ev.on('messages.upsert', async (chatUpdate) => {
             try {
                 const mek = chatUpdate.messages[0];
                 const fromJid = mek.key.participant || mek.key.remoteJid;
                 if (!mek || !mek.message) return;
                 if (mek.key.fromMe) return;
-                if (mek.message?.protocolMessage || mek.message?.ephemeralMessage || mek.message?.reactionMessage) return; 
-                
+                if (mek.message?.protocolMessage || mek.message?.ephemeralMessage || mek.message?.reactionMessage) return;
+
+                // Auto-status seen
                 if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_STATUS_SEEN) {
                     await Matrix.readMessages([mek.key]);
-                    
+
+                    // Auto-status reply
                     if (config.AUTO_STATUS_REPLY) {
                         const customMessage = config.STATUS_READ_MSG || '✅ Auto Status Seen Bot By DRACULA';
                         await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
@@ -190,6 +184,7 @@ https://github.com/Dracula00-ux/Dracula-MD.git
     }
 }
 
+// Fonction d'initialisation
 async function init() {
     if (fs.existsSync(credsPath)) {
         console.log(" Session file found, proceeding without QR code.");
@@ -209,6 +204,7 @@ async function init() {
 
 init();
 
+// Serveur Express pour accéder à la page de test
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
