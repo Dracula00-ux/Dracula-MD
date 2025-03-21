@@ -60,14 +60,14 @@ async function downloadSessionData() {
     const sessdata = config.SESSION_ID.split("DRACULA~")[1];
 
     if (!sessdata || !sessdata.includes("#")) {
-        console.error('❌ Invalid SESSION_ID format! It must contain both file ID and decryption key.');
+        console.error(' Invalid SESSION_ID format! It must contain both file ID and decryption key.');
         return false;
     }
 
     const [fileID, decryptKey] = sessdata.split("#");
 
     try {
-        console.log("🔄 Downloading Session...");
+        console.log("Downloading Session...");
         const file = File.fromURL(`https://mega.nz/file/${fileID}#${decryptKey}`);
 
         const data = await new Promise((resolve, reject) => {
@@ -78,10 +78,10 @@ async function downloadSessionData() {
         });
 
         await fs.promises.writeFile(credsPath, data);
-        console.log("🔒 Session Successfully Loaded !!");
+        console.log(" Session Successfully Loaded !!");
         return true;
     } catch (error) {
-        console.error('❌ Failed to download session data:', error);
+        console.error(' Failed to download session data:', error);
         return false;
     }
 }
@@ -90,13 +90,13 @@ async function start() {
     try {
         const { state, saveCreds } = await useMultiFileAuthState(sessionDir);
         const { version, isLatest } = await fetchLatestBaileysVersion();
-        console.log(`🤖 KYOTAKA-MD using WA v${version.join('.')}, isLatest: ${isLatest}`);
+        console.log(` DRACULA-MD using WA v${version.join('.')}, isLatest: ${isLatest}`);
         
         const Matrix = makeWASocket({
             version,
             logger: pino({ level: 'silent' }),
             printQRInTerminal: useQR,
-            browser: ["KYOTAKA-MD", "safari", "3.3"],
+            browser: ["DRACULA-MD", "safari", "3.3"],
             auth: state,
         });
 
@@ -192,12 +192,12 @@ Don't forget to give a star to the repo ⬇️
 
 async function init() {
     if (fs.existsSync(credsPath)) {
-        console.log("🔒 Session file found, proceeding without QR code.");
+        console.log(" Session file found, proceeding without QR code.");
         await start();
     } else {
         const sessionDownloaded = await downloadSessionData();
         if (sessionDownloaded) {
-            console.log("🔒 Session downloaded, starting bot.");
+            console.log("Session downloaded, starting bot.");
             await start();
         } else {
             console.log("No session found or downloaded, QR code will be printed for authentication.");
