@@ -1,4 +1,3 @@
-Voilà les fonctions auto_status et autres précis les bien j'aime pas ça
 import dotenv from 'dotenv';
 dotenv.config();
 
