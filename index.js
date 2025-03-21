@@ -115,7 +115,7 @@ async function start() {
                 if (reconnectAttempts < 5) {
                     reconnectAttempts++;
                     console.log(chalk.yellow(`Tentative de reconnexion ${reconnectAttempts}/5...`));
-                    start();  // Tentative de redémarrer
+                    setTimeout(start, 5000);  // Ajout d'un délai avant de tenter la reconnexion
                 } else {
                     console.log(chalk.red('Limite de tentatives de reconnexion atteinte. Arrêt du bot.'));
                 }
@@ -126,7 +126,7 @@ async function start() {
                         image: { url: "https://files.catbox.moe/hbos7n.jpg" },
                         caption: `𝚜𝚊𝚕𝚞𝚝 𝚓𝚎 𝚜𝚞𝚒𝚜  𝙳𝚁𝙰𝙲𝚄𝙻𝙰-𝙼𝙳 𝚝𝚘𝚗 𝚋𝚘𝚝 𝚊𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝👋🏻
 
-𝚂𝚒𝚖𝚙𝚕𝚎, 𝚍𝚒𝚛𝚎𝚌𝚝, 𝚖𝚊𝚒𝚜 𝚌𝚑𝚊𝚛𝚐é 𝚍𝚎 𝚏𝚘𝚗𝚌𝚝𝚒𝚘𝚗𝚗𝚊𝚕𝚒𝚝é𝚜 🎊.  𝚁𝚎𝚗𝚌𝚘𝚗𝚝𝚛𝚎𝚣 𝚕𝚎 𝚋𝚘𝚝 𝚆𝚑𝚊𝚝𝚜𝙰𝚙𝚙 𝙳𝚁𝙰𝙲𝚄𝙻𝙰-𝙼𝙳.
+𝚂𝚒𝚖𝚙𝚕𝚎, 𝚍𝚒𝚛𝚎𝚌𝚝, 𝚖𝚊𝚒𝚜 𝚌𝚑𝚊𝚛𝚐é 𝚍𝚎 𝚏𝚘𝚗𝚌𝚝𝚒𝚘𝚗𝚗𝚊𝚕𝚒𝚝𝚎𝚜 🎊.  𝚁𝚎𝚗𝚌𝚘𝚗𝚝𝚛𝚎𝚣 𝚕𝚎 𝚋𝚘𝚝 𝚆𝚑𝚊𝚝𝚜𝙰𝚙𝚙 𝙳𝚁𝙰𝙲𝚄𝙻𝙰-𝙼𝙳.
 
 🔧 𝙲𝚘𝚗𝚏𝚒𝚐𝚞𝚛𝚊𝚝𝚒𝚘𝚗:
 𝙰𝚞𝚝𝚘 𝚂𝚝𝚊𝚝𝚞𝚜 𝚂𝚎𝚎𝚗: ${config.AUTO_STATUS_SEEN ? '✅' : '❌'}
