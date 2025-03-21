@@ -110,10 +110,10 @@ async function start() {
                 if (initialConnection) {
                     console.log(chalk.green("Connected Successfully KYOTAKA-MD ⚪"));
                     Matrix.sendMessage(Matrix.user.id, { 
-                        image: { url: "https://files.catbox.moe/pf270b.jpg" }, 
-                        caption: `*Hello there KYOTAKA-MD User! 👋🏻* 
+                        image: { url: "https://files.catbox.moe/sauy49.jpg" }, 
+                        caption: `salut je suis  DRACULA-MD ton bot assistant👋🏻 
 
-> Simple, Straightforward, But Loaded With Features 🎊. Meet KYOTAKA-MD WhatsApp Bot.
+ Simple, direct, mais chargé de fonctionnalités 🎊.  Rencontrez le bot WhatsApp DRACULA-MD.
 
 🔧 *Bot Configuration:*
 ✅ *Auto Status Seen:* ${config.AUTO_STATUS_SEEN ? 'Enabled ✅' : 'Disabled ❌'}
@@ -124,9 +124,9 @@ async function start() {
 📌 *Command Prefix:* ${prefix}
 
 Don't forget to give a star to the repo ⬇️  
-https://github.com/XdTechPro/KYOTAKA-MD
 
-> © Powered BY Pharouk 🖤`
+
+ Powered BY Pharouk 🫠`
                     });
                     initialConnection = false;
                 } else {
@@ -175,7 +175,7 @@ https://github.com/XdTechPro/KYOTAKA-MD
                     await Matrix.readMessages([mek.key]);
                     
                     if (config.AUTO_STATUS_REPLY) {
-                        const customMessage = config.STATUS_READ_MSG || '✅ Auto Status Seen Bot By KYOTAKA-MD';
+                        const customMessage = config.STATUS_READ_MSG || '✅ Auto Status Seen Bot By DRACULA';
                         await Matrix.sendMessage(fromJid, { text: customMessage }, { quoted: mek });
                     }
                 }
