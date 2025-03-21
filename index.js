@@ -131,7 +131,7 @@ async function start() {
 🔧 𝙲𝚘𝚗𝚏𝚒𝚐𝚞𝚛𝚊𝚝𝚒𝚘𝚗:
 𝙰𝚞𝚝𝚘 𝚂𝚝𝚊𝚝𝚞𝚜 𝚂𝚎𝚎𝚗: ${config.AUTO_STATUS_SEEN ? '✅' : '❌'}
 𝙰𝚞𝚝𝚘 𝚂𝚝𝚊𝚝𝚞𝚜 𝚁𝚎𝚙𝚕𝚢: ${config.AUTO_STATUS_REPLY ? '✅' : '❌'}
-𝙰𝚞𝚝𝚘 𝙳𝚕: ${config.AUTO_DL ? '✅' : ''}
+𝙰𝚞𝚝𝚘 𝙳𝚕: ${config.AUTO_DL ? '✅' : '❌'}
 𝙰𝚕𝚠𝚊𝚢𝚜 𝙾𝚗𝚕𝚒𝚗𝚎: ${config.ALWAYS_ONLINE ? '✅' : '❌'}
 
  𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝙿𝚛𝚎𝚏𝚒𝚡: ${prefix}
