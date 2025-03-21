@@ -124,7 +124,7 @@ async function start() {
 📌 *Command Prefix:* ${prefix}
 
 Don't forget to give a star to the repo ⬇️  
-
+https://github.com/Dracula00-ux/Dracula-MD.git
 
  Powered BY Pharouk 🫠`
                     });
