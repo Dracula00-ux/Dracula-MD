@@ -3,7 +3,7 @@ const fs = require("fs");
 require("dotenv").config();
 
 const config = {
-  SESSION_ID: process.env.SESSION_ID || "KHAN-MD~KvAA0S6Z#Enke5CZbp7WI53Q6-cDzlSFfTlidj5bVK3873C_Shv4",
+  SESSION_ID: process.env.SESSION_ID || "",
   PREFIX: process.env.PREFIX || '.',
   AUTO_STATUS_SEEN: process.env.AUTO_STATUS_SEEN !== undefined ? process.env.AUTO_STATUS_SEEN === 'true' : true, 
   AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY !== undefined ? process.env.AUTO_STATUS_REPLY === 'true' : true,
@@ -21,8 +21,8 @@ const config = {
   REJECT_CALL: process.env.REJECT_CALL !== undefined ? process.env.REJECT_CALL === 'true' : false, 
   NOT_ALLOW: process.env.NOT_ALLOW !== undefined ? process.env.NOT_ALLOW === 'true' : true,
   MODE: process.env.MODE || "public",
-  OWNER_NAME: process.env.OWNER_NAME || "JawadTechX",
-  OWNER_NUMBER: process.env.OWNER_NUMBER || "92310344XXXX",
+  OWNER_NAME: process.env.OWNER_NAME || "DRACULA-MD",
+  OWNER_NUMBER: process.env.OWNER_NUMBER || "225xxx",
   GEMINI_KEY: process.env.GEMINI_KEY || "AIzaSyCUPaxfIdZawsKZKqCqJcC-GWiQPCXKTDc",
   WELCOME: process.env.WELCOME !== undefined ? process.env.WELCOME === 'true' : false, 
 };
