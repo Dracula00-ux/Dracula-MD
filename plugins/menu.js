@@ -119,8 +119,8 @@ const test = async (m, Matrix) => {
 
     // Envoyer un audio après le menu
     await Matrix.sendMessage(m.from, {
-      audio: { url: '' },
-      mimetype: '',
+      audio: { url: 'https://files.catbox.moe/wsw2s3.mp3' },
+      mimetype: 'audio/mp3',
       ptt: true
     }, { quoted: m });
   }
