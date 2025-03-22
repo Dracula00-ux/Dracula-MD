@@ -39,8 +39,8 @@ const messageUptime = `*Je suis en ligne depuis ${jours}j ${heures}h ${minutes}m
 const messageFonctionnement = `*☀️ ${jours} Jour*\n*🕐 ${heures} Heure*\n*⏰ ${minutes} Minutes*\n*⏱️ ${secondes} Secondes*\n`;
 
 // Obtenir l'heure et la date
-const heureActuelle = moment.tz("Asia/Colombo").format("HH:mm:ss");
-const dateActuelle = moment.tz("Asia/Colombo").format("DD/MM/YYYY");
+const heureActuelle = moment.tz("Africa/Abidjan").format("HH:mm:ss");
+const dateActuelle = moment.tz("Africa/Abidjan").format("DD/MM/YYYY");
 const heure2 = moment().tz("Asia/Colombo").format("HH:mm:ss");
 
 let salutation = "";
@@ -68,42 +68,22 @@ const test = async (m, Matrix) => {
 
   if (commandesValides.includes(cmd)) {
     const str = `╭━━━〔 *DRACULA-MD* 〕━━━┈⊷
-┃☠╭──────────────
-┃☠│ Propriétaire : *PHAROUK*
-┃☠│ Utilisateur : *${m.pushName}*
-┃☠│  BOT : WHATSAPP 
-┃☠│ Type : *NodeJs*
-┃☠│ Mode : *${mode}*
-┃☠│ Plateforme : *${os.platform()}*
-┃☠│ Préfixe : ${prefix}
-┃☠│ Version : *1.0.0*
-┃☠╰──────────────
+┃❍╭──────────────
+┃❍│ *Propriétaire* : PHAROUK
+┃❍│ *Utilisateur* : ${m.pushName}
+┃❍│  *BOT* : WHATSAPP 
+┃❍│ *Type* : NodeJs
+┃❍│ *Mode* : ${mode}
+┃❍│ *Plateforme* : ${os.platform()}
+┃❍│ *Préfixe* : ${prefix}
+┃❍│ *Version* : 1.0.0
+┃❍╰──────────────
 ╰━━━━━━━━━━━━━━━┈⊷ 
 > Hey ${m.pushName} ${salutation}
-╭━❮ 𝙲𝙾𝙽𝚅𝙴𝚁𝚃𝙴𝚄𝚁 ❯━╮
-┃♨ ${prefix}𝙰𝚃𝚃𝙿
-┃♨ ${prefix}𝙴𝙼𝙾𝙹𝙸𝙼𝙸𝚇
-┃♨ ${prefix}𝙼𝙿3
-╰━━━━━━━━━━━━━━━⪼
-╭━❮ 𝙰𝙸 ❯━╮
-┃♨ ${prefix}𝙰𝚒
-┃♨ ${prefix}𝙶𝚙𝚝
-┃♨ ${prefix}𝙳𝚊𝚕𝚕𝚎
-╰━━━━━━━━━━━━━━━⪼
-╭━❮ 𝙶𝚁𝙾𝚄𝙿 ❯━╮
-┃♨ ${prefix}𝙰𝚓𝚘𝚞𝚝𝚎𝚛
-┃♨ ${prefix}𝙴𝚡𝚙𝚞𝚕𝚜𝚎𝚛
-┃♨ ${prefix}𝙶𝚛𝚘𝚞𝚙𝚎
-╰━━━━━━━━━━━━━━━⪼
-╭━❮ 𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 ❯━╮
-┃♨ ${prefix}𝚈𝚝𝚖𝚙3
-┃♨ ${prefix}𝙵𝚊𝚌𝚎𝚋𝚘𝚘𝚔
-┃♨ ${prefix}𝙿𝚕𝚊𝚢
-╰━━━━━━━━━━━━━━━⪼
 ╭━❮ 𝙿𝚁𝙸𝙽𝙲𝙸𝙿𝙰𝙻 ❯━╮
-┃♨ ${prefix}𝙿𝚒𝚗𝚐
-┃♨ ${prefix}𝙼𝚎𝚗𝚞
-┃♨ ${prefix}𝙸𝚗𝚏𝚘𝙱𝚘𝚝
+┃ぼ ${prefix}𝙿𝚒𝚗𝚐
+┃ぼ${prefix}𝙼𝚎𝚗𝚞
+┃ぼ${prefix}𝙸𝚗𝚏𝚘𝙱𝚘𝚝
 ╰━━━━━━━━━━━━━━━⪼`;
 
     await Matrix.sendMessage(m.from, {
