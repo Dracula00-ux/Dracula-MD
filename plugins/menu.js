@@ -82,8 +82,22 @@ const test = async (m, Matrix) => {
 > Hey ${m.pushName} ${salutation}
 ╭━❮ 𝙿𝚁𝙸𝙽𝙲𝙸𝙿𝙰𝙻 ❯━╮
 ┃ぼ ${prefix}𝙿𝚒𝚗𝚐
-┃ぼ${prefix}𝙼𝚎𝚗𝚞
-┃ぼ${prefix}𝙸𝚗𝚏𝚘𝙱𝚘𝚝
+┃ぼ ${prefix}𝙼𝚎𝚗𝚞
+┃ぼ ${prefix}𝙸𝚗𝚏𝚘𝙱𝚘𝚝
+╰━━━━━━━━━━━━━━━⪼
+
+╭━❮ 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝙴𝚂 ❯━╮
+┃ぼ ${prefix}alive
+┃ぼ ${prefix}anticall
+┃ぼ ${prefix}autos
+┃ぼ ${prefix}couple-pp
+┃ぼ ${prefix}del
+┃ぼ ${prefix}menu
+┃ぼ ${prefix}mode
+┃ぼ ${prefix}ping
+┃ぼ ${prefix}promote
+┃ぼ ${prefix}remove
+┃ぼ ${prefix}welcome
 ╰━━━━━━━━━━━━━━━⪼`;
 
     await Matrix.sendMessage(m.from, {
